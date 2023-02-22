@@ -8,6 +8,10 @@ packages = [{include = "sql_admin"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+fastapi = "^0.92.0"
+pydantic = "^1.10.5"
+sqlalchemy = "^2.0.4"
+sqladmin = "^0.9.0"
 
 
 [build-system]
