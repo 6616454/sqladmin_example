@@ -1,15 +1,14 @@
 from typing import Any
 
 from sqlalchemy import text
-from sqlalchemy.ext.asyncio import async_sessionmaker, AsyncSession
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 class DatabaseClient:
-    def __init__(self, pool: async_sessionmaker[AsyncSession]) -> None:
-        self._pool = pool
+    def __init__(self, session: AsyncSession) -> None:
+        self._session = session
 
     async def __aenter__(self) -> "DatabaseClient":
-        self._session: AsyncSession = self._pool()
         return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb) -> None:
