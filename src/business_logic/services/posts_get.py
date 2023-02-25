@@ -1,4 +1,7 @@
+from sqlalchemy import select
+
 from src.infrastructure.db.client import DatabaseClient
+from src.infrastructure.db.models.post import Post
 
 
 class PostsGetService:
@@ -7,6 +10,6 @@ class PostsGetService:
 
     async def execute(self):
         async with self.db_client as db:
-            statement = """SELECT * FROM posts"""
+            statement = select(Post)
 
-            return await db.execute(statement)
+            return (await db.execute(statement)).scalars().all()
