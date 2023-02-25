@@ -14,6 +14,8 @@ sqlalchemy = "^2.0.4"
 sqladmin = "^0.9.0"
 alembic = "^1.9.4"
 asyncpg = "^0.27.0"
+orjson = "^3.8.6"
+uvicorn = "^0.20.0"
 
 
 [build-system]
