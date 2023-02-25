@@ -4,4 +4,4 @@ from src.infrastructure.db.models.post import Post
 
 
 class PostAdmin(ModelView, model=Post):
-    pass
+    column_list = [Post.id, Post.text]
