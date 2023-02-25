@@ -13,7 +13,6 @@ class DatabaseClient:
     async def __aexit__(self, exc_type, exc_val, exc_tb) -> None:
         if exc_type:
             await self.rollback()
-        await self._session.close()
 
     async def commit(self) -> None:
         await self._session.commit()
