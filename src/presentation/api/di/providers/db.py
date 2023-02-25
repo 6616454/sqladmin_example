@@ -3,6 +3,10 @@ from sqlalchemy.ext.asyncio import async_sessionmaker, AsyncSession
 from src.infrastructure.db.client import DatabaseClient
 
 
+def db_provider() -> None:
+    raise NotImplementedError
+
+
 class DBProvider:
     def __init__(self, pool: async_sessionmaker[AsyncSession]):
         self._pool = pool
