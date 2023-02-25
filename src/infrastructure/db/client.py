@@ -22,5 +22,5 @@ class DatabaseClient:
     async def rollback(self) -> None:
         await self._session.rollback()
 
-    async def execute(self, statement: str, **params) -> Any:
-        return await self._session.execute(text(statement), params)
+    async def execute(self, statement) -> Any:
+        return await self._session.execute(statement)
